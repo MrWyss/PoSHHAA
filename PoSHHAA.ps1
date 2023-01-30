@@ -1,7 +1,7 @@
 #region Changes Here
 $Language = "en-US"
 $NarratorVoice = "Microsoft David Desktop" 
-#region
+#endregion
 
 #region Configure Language
 Import-LocalizedData -BindingVariable msgTable -UICulture $Language
@@ -15,7 +15,6 @@ if (-not (Get-Module Microsoft.PowerShell.SecretStore -ListAvailable)) {
     Install-Module Microsoft.PowerShell.SecretStore -Scope CurrentUser -Force
 }
 #endregion
-
 
 #region Check if secret is already save, if not create Secrete Store and save the token
 $VaultName = "PoSHHAA"
@@ -121,7 +120,9 @@ Function ChangeLanguage() {
 Function GetVersion() {
     $msgTable.NotImplemented
 }
+#endregion
 
+#region Help Messages
 $HelpMessages = @(
     [pscustomobject]@{Commands="exit, stop, quit";HelpMessage=$msgTable.HelpQuitMsg},
     [pscustomobject]@{Commands="change voice";HelpMessage=$msgTable.HelpChangeVoicesMsg},
@@ -129,7 +130,9 @@ $HelpMessages = @(
     [pscustomobject]@{Commands="change language, select language, language";HelpMessage=$msgTable.HelpChangeLanguageMsg}
     [pscustomobject]@{Commands=$msgTable.HelpExampleCmd;HelpMessage=$msgTable.HelpExampleMsg}
 ) 
+#endregion
 
+#region Main loop
 $quit = $false
 While ($quit -eq $false) {
     $Intent = $(Write-Host "$($msgTable.YouPrompt): " -ForegroundColor Green -NoNewLine; Read-Host) 
@@ -156,3 +159,4 @@ While ($quit -eq $false) {
         }
     }
 }
+#endregion
