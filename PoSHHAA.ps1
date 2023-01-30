@@ -1,6 +1,6 @@
 #region Changes Here
 $Language = "en-US"
-$NarratorVoice = "Microsoft Hazel Desktop" 
+$NarratorVoice = "Microsoft David Desktop" 
 #region
 
 #region Configure Language
@@ -122,7 +122,13 @@ Function GetVersion() {
     $msgTable.NotImplemented
 }
 
-#endregion
+$HelpMessages = @(
+    [pscustomobject]@{Commands="exit, stop, quit";HelpMessage=$msgTable.HelpQuitMsg},
+    [pscustomobject]@{Commands="change voice";HelpMessage=$msgTable.HelpChangeVoicesMsg},
+    [pscustomobject]@{Commands="ha version, ha info";HelpMessage=$msgTable.HelpCheckVersionMsg},
+    [pscustomobject]@{Commands="change language, select language, language";HelpMessage=$msgTable.HelpChangeLanguageMsg}
+    [pscustomobject]@{Commands=$msgTable.HelpExampleCmd;HelpMessage=$msgTable.HelpExampleMsg}
+) 
 
 $quit = $false
 While ($quit -eq $false) {
@@ -143,11 +149,7 @@ While ($quit -eq $false) {
             GetVersion
         }
         '^(help|info|\?|hello|)$' {
-            "$($msgTable.HelpQuitMsg): exit, stop, quit"
-            "$($msgTable.HelpChangeVoicesMsg): change voice"
-            "$($msgTable.HelpCheckVersionMsg): ha version, ha info"
-            "$($msgTable.HelpChangeLanguageMsg): change language, select language, language"
-            "$($msgTable.HelpExampleMsg)"
+            $HelpMessages | Format-Table
         }
         Default {
             Chat -Intent $Intent
