@@ -12,6 +12,7 @@ HelpQuitMsg= to quit
 HelpChangeVoicesMsg = to change voices
 HelpCheckVersionMsg = to check version
 HelpExampleMsg = try: Turn on the living room lights
+HelpExampleCmd = Turn on the living room lights
 HelpChangeLanguageMsg = to change language
 NotImplemented = Not implemented yet
 Error = Error
