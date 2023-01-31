@@ -128,7 +128,7 @@ Function ChangeLanguage() {
 }
 Function GetVersion() {
     # Check Script Version and Home Assistant Versions
-    $msgTable.NotImplemented
+    Talk -Text "`r`nPoSHHA: $((get-module -Name PoSHHAA).Version.ToString())`r`nHome Assistant: $($msgTable.NotImplemented)" -Mute
 }
 #endregion
 
