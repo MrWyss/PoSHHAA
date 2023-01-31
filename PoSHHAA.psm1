@@ -163,13 +163,16 @@ Function Start-HAAChat {
             '^((change|select|^)(\s|^)voice(s|))$' {
                 ChangeVoice
             }
+            # change language, select language, language
             '^((change|select|^)(\s|^)language)$' {
                 ChangeLanguage
             }
-            '^(ha\sversion|ha\sinfo|check\sversion|version)$' {
+            # ha version, info version, check version, version
+            '^((ha|info|check|^)(\s|^)version)$' {
                 GetVersion
             }
-            '^(help|info|\?|hello|)$' {
+            # help, info, hello, ?, [ENTER]
+            '^(help|info|hello|\?|)$' {
                 Talk -Text $msgTable.Help -Mute
                 $($HelpMessages | Format-Table)
             }
