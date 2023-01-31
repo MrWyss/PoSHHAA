@@ -154,14 +154,16 @@ Function Start-HAAChat {
         $Intent = Ask
     
         Switch -regex ($Intent) {
+            # exit, stop, quit and bye
             '^(exit|stop|quit|bye)$' { 
                 $quit = $true
                 Talk -Text $msgTable.Bye
             }
-            '^(change\svoices|change\svoice|select\svoices|select\svoice|voices?|voice)$' {
+            # change voice, change voices, select voice, select voices, voice, voices
+            '^((change|select|^)(\s|^)voice(s|))$' {
                 ChangeVoice
             }
-            '^(change\slanguage|select\slanguage|language)$' {
+            '^((change|select|^)(\s|^)language)$' {
                 ChangeLanguage
             }
             '^(ha\sversion|ha\sinfo|check\sversion|version)$' {
