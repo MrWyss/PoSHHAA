@@ -22,7 +22,7 @@ RootModule = 'PoSHHAA.psm1'
 ModuleVersion = '0.0.4'
 
 # Supported PSEditions
-CompatiblePSEditions =  @('Desktop','Core')
+# CompatiblePSEditions =  @('Desktop','Core')
 
 # ID used to uniquely identify this module
 GUID = '6a22aa97-1b49-427b-b8be-dd2a51850173'
@@ -40,7 +40,7 @@ Copyright = 'Apache License, Version 2.0'
 Description = 'Provides prompt that interacts with Home Assistant''s Assist'
 
 # Minimum version of the PowerShell engine required by this module
-# PowerShellVersion = ''
+PowerShellVersion = '5.1'
 
 # Name of the PowerShell host required by this module
 # PowerShellHostName = ''
@@ -58,7 +58,7 @@ Description = 'Provides prompt that interacts with Home Assistant''s Assist'
 # ProcessorArchitecture = ''
 
 # Modules that must be imported into the global environment prior to importing this module
-RequiredModules = @('Microsoft.PowerShell.SecretManagement', 'Microsoft.PowerShell.SecretStore')
+# RequiredModules = @()
 
 # Assemblies that must be loaded prior to importing this module
 # RequiredAssemblies = @()
@@ -105,10 +105,10 @@ PrivateData = @{
         # Tags = @()
 
         # A URL to the license for this module.
-        # LicenseUri = ''
+        # LicenseUri = 'https://raw.githubusercontent.com/MrWyss/PoSHHAA/main/LICENSE.md'
 
         # A URL to the main website for this project.
-        # ProjectUri = ''
+        # ProjectUri = 'https://github.com/MrWyss/PoSHHAA'
 
         # A URL to an icon representing this module.
         # IconUri = ''
@@ -123,7 +123,7 @@ PrivateData = @{
         # RequireLicenseAcceptance = $false
 
         # External dependent modules of this module
-        # ExternalModuleDependencies = @()
+        ExternalModuleDependencies = @('Microsoft.PowerShell.SecretManagement', 'Microsoft.PowerShell.SecretStore')
 
     } # End of PSData hashtable
 
