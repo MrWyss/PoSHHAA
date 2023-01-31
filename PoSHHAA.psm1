@@ -145,6 +145,9 @@ $HelpMessages = @(
 
 #region Start-HAAChat (main function)
 Function Start-HAAChat {
+    [Alias("haa")]
+    param()
+
     Initialize-HAAChat
     $quit = $false
     While ($quit -eq $false) {
@@ -177,6 +180,7 @@ Function Start-HAAChat {
 #endregion
 
 #region Module Setup
+Export-ModuleMember -Alias "haa" -Function Start-HAAChat
 Export-ModuleMember -Function @(
 	'Start-HAAChat'
 	'Initialize-HAAChat'
