@@ -18,4 +18,5 @@ HelpExampleCmd = Turn on the living room lights
 HelpChangeLanguageMsg = to change language
 NotImplemented = Not implemented yet
 Error = Error
+HADevices = Devices
 '@

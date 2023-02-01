@@ -18,4 +18,5 @@ HelpExampleCmd = Schalt das Schlafzimmer licht ein
 HelpChangeLanguageMsg = Sprache ändern
 NotImplemented = Not implemented yet
 Error = Fehler
+HADevices = Geräte
 '@

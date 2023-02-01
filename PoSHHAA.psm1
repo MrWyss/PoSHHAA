@@ -1,10 +1,9 @@
-#region Configure Language
-Import-LocalizedData -BindingVariable msgTable -UICulture $Global:Language
-#endregion
-
 #region Globals
 $Global:LoginParameters = @{}
 $Global:Language        = "en-US"
+#region Configure Language
+Import-LocalizedData -BindingVariable msgTable -UICulture $Global:Language
+#endregion
 $Global:NarratorVoice   = "Microsoft David Desktop" 
 $Global:YouPrompt = {"`r`n$(Get-Date -Format "yyyy-MM-dd hh:mm:ss")`r`n$($msgTable.YouPrompt): "}
 $Global:YouPromptColorAndBehaviour = @{
@@ -77,10 +76,17 @@ Function Talk() {
         [String]$Text,
         # Do not speak only write
         [Parameter(Mandatory = $false)]
-        [Switch]$Mute
+        [Switch]$Mute,
+        # Do not Display the Prompt
+        [Parameter(Mandatory = $false)]
+        [String]$PromptOverride
     )
 
-    $PromptPrefix = Invoke-Command -ScriptBlock $Global:BotPrompt
+    $PromptPrefix = $PromptOverride
+    if ($PromptPrefix -eq "") {
+        $PromptPrefix = Invoke-Command -ScriptBlock $Global:BotPrompt
+    }
+
     Write-Host $PromptPrefix @Global:BotPromptColorAndBehaviour
     Write-Host $Text
     if (-not $Mute) {
@@ -98,9 +104,13 @@ Function FindOut() {
         $Body = @{
             "text"     = $Intent
             "language" = $Global:Language
-        }
+        } | ConvertTo-Json
         $Response = Invoke-WebRequest @Global:LoginParameters -Body $Body
-        Talk($Response)
+        $HAAResponse = $Response.Content | ConvertFrom-Json
+        $TextResponse = $HAAResponse.response.speech.plain.speech
+        $Devices = $HAAResponse.response.data.success.name -join ", "
+        Talk -Text $TextResponse
+        Talk -PromptOverride "$($msgTable.HADevices): " -Text $Devices -Mute
     }
     Catch {
         Talk("$($msgTable.Error) $($_.Exception.Response.StatusCode.Value__)") -Mute
