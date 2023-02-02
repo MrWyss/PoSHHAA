@@ -143,8 +143,8 @@ Uninstall-Module PoSHHAA -force
 
 ## TODO
 
-- [] Implement Home Assistant version check
-- [] Change Language
-- [] More translations
-- [] a way to turn off TTS
-- [] Publish to PSGallery
+- [ ] Implement Home Assistant version check
+- [ ] Change Language
+- [ ] More translations
+- [ ] a way to turn off TTS
+- [ ] Publish to PSGallery
