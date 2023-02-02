@@ -11,13 +11,20 @@ PoSHHAA: Turned on office spots
 Devices: Office Spots
 ```
 
+## Features
+
+- Interactive Prompt
+- Secure permanent token storage
+- TTS and ability to change voices
+- :construction: Multi language support
+
 > :information_source: instead of typing you can also use Windows built-in STT **WIN + H**
 
 ## Install
 
 ### Create a local PS Repository
 
-Create a directory e.g. ``C:\LocalPSRepo``
+Create a directory e.g. ``C:\LocalPSRepo`` \
 Register the Repository:
 
 ```powershell
@@ -26,8 +33,7 @@ Register-PSRepository -Name LocalPSRepo -SourceLocation 'C:\LocalPSRepo' -Script
 
 ### Download and Publish Module
 
-Download sources e.g. ``git clone git@github.com:MrWyss/PoSHHAA.git`` let's assume it clones the Github repository to ``C:\Git\PoSHHAA``
-
+Download sources e.g. ``git clone git@github.com:MrWyss/PoSHHAA.git`` let's assume it clones the Github repository to ``C:\Git\PoSHHAA`` \
 Publish module into local Repository
 
 ```powershell
@@ -61,8 +67,7 @@ Script     0.0.4      PoSHHAA                             {Initialize-HAAChat, S
 ```
 
 ``Start-HAAChat``
-You can run ``Initialize-HAAChat`` or ``Start-HAAChat`` with its alias ``haa``.
-
+You can run ``Initialize-HAAChat`` or ``Start-HAAChat`` with its alias ``haa``. \
 Or just run ``haa``, as ``haa`` / ``Start-HAAChat`` calls ``Initialize-HAAChat``.
 
 1. During the first run, the script creates a new secret vault ``PoSHHAA``, which requires a _master_ password.
@@ -86,16 +91,13 @@ Home Assistant URL: https://yourinstanace.ui.nabu.casa/
 
 ### First run
 
-Simply run ``Start-HAAChat`` or the alias ``haa``.
-
+Simply run ``Start-HAAChat`` or the alias ``haa``. \
 From time to time (3600s), you'll be asked to provide the Vaults password.
 
 ```powershell
 Vault PoSHHAA requires a password.
 Enter password:
 ```
-
-Run the help.
 
 ### Help
 
@@ -147,4 +149,5 @@ Uninstall-Module PoSHHAA -force
 - [ ] Change Language
 - [ ] More translations
 - [ ] a way to turn off TTS
+- [ ] more chat-like prompt
 - [ ] Publish to PSGallery
