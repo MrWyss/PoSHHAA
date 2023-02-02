@@ -2,7 +2,7 @@
 
 A simple PowerShell Module that implements a Home Assistant Assist ChatBot.
 
-```powershell
+```text
 2023-02-02 10:18:34
 You: turn on office spots
 
@@ -56,11 +56,11 @@ Install-Module PoSHHAA -Scope CurrentUser -Repository LocalPSRepo
 Import-Module PoSHHAA
 ```
 
-## First Run
+## Setup & Configure
 
 The module exports two functions and one alias
 
-```powershell
+```text
 ModuleType Version    Name                                ExportedCommands
 ---------- -------    ----                                ----------------
 Script     0.0.4      PoSHHAA                             {Initialize-HAAChat, Start-HAAChat, haa}
@@ -73,7 +73,7 @@ Or just run ``haa``, as ``haa`` / ``Start-HAAChat`` calls ``Initialize-HAAChat``
 1. During the first run, the script creates a new secret vault ``PoSHHAA``, which requires a _master_ password.
 2. Next the two secrets will be created ``PoSHHAABaseURL`` and ``PoSHHAAToken``. You will need to provide the values for these. Get them from your home assistant instance.
 
-```powershell
+```text
 A password is now required for the local store configuration.
 To complete the change please provide new password.
 Enter password:
@@ -94,14 +94,14 @@ Home Assistant URL: https://yourinstanace.ui.nabu.casa/
 Simply run ``Start-HAAChat`` or the alias ``haa``. \
 From time to time (3600s), you'll be asked to provide the Vaults password.
 
-```powershell
+```text
 Vault PoSHHAA requires a password.
 Enter password:
 ```
 
 ### Help
 
-```powershell
+```text
 2023-02-02 10:15:54
 You: help
 
@@ -123,7 +123,7 @@ You:
 
 ### Turn on some lights
 
-```powershell
+```text
 2023-02-02 10:18:34
 You: turn on office spots
 
